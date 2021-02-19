@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page title</title>
+    <link rel="stylesheet" type="text/css" href="to do list.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+<body>
+
+ <script type="text/javascript">
+		       var listItems=['Do Homework','Play cricket']; 
+ </script>    
+	
+<div class="container">
+       <div class="header">
+           To Do List
+       </div> 
+       
+       <div id="list">
+          <input type="text" id="myInput" placeholder="Title...">            
+          <button onclick="addItem()" class="addBtn">Add</button>
+          <ul id="myUL">
+          <script type="text/javascript">
+		       
+			   
+               listItems.forEach(displayList);
+             
+               function displayList(item){
+                     document.getElementById("myUL").innerHTML += "<li><span class='left'>" +item+ 
+					 "</span><span class='right'><i class='fa fa-check-circle  fa-2x' style='color: green;'></i>&nbsp;&nbsp;&nbsp;<i class='fa fa-trash  fa-2x' style='color: red;'></i></span></li>"}     
+		      
+		  
+		  </script> 
+         
+          </ul>
+       </div>
+       
+	   <script type="text/javascript">
+         
+		 var close = document.getElementsByClassName("fa fa-trash");
+         var done = document.getElementsByClassName("fa fa-check-circle");
+		 var i;
+         for (i = 0; i < close.length; i++) {
+        
+		 close[i].onclick = function() {
+         var div = this.parentElement.parentElement;
+         div.style.display = "none";
+                                       }
+		done[i].onclick = function() {
+         var check = this.parentElement.parentElement.firstChild;
+         check.style="text-decoration:line-through;color:gray;";
+         var check1 = this; 
+		 check1.style.display="none";
+		 }
+		  
+		  }
+		 
+		 
+		 
+		 
+		 
+		 function addItem(){
+		    var item= document.getElementById("myInput").value;
+			
+			if(item==""){
+			window.alert("Task field cannot be empty.");}
+			else{
+			listItems.push(item);
+			displayList(item);}
+		 
+		 
+		 
+		 for (i = 0; i < close.length; i++) {
+         close[i].onclick = function() {
+         var div = this.parentElement.parentElement;
+         div.style.display = "none";
+                                       }
+		done[i].onclick = function() {
+         var check = this.parentElement.parentElement.firstChild;
+         check.style="text-decoration:line-through;color:gray;";
+                var check1 = this; 
+		 check1.style.display="none";                            }
+		  }  
+  
+ 
+		 document.getElementById("myInput").value="";
+		 }
+		 
+	   document.getElementById("myInput").addEventListener("keydown",function(e){
+	   if(e.keyCode== 13){
+	   addItem();
+	   }
+	   
+	   });
+	   </script>
+	   
+	   <div class="clear">
+          <button type="button" id="clear-list" onclick="removeAll()">
+          Clear Items
+          </button>
+         <script type="text/javascript">
+		     function removeAll(){
+			    document.getElementById("myUL").innerHTML="";
+				
+			
+			 }
+		  </script>
+	   
+	   </div>
+
+</div>
+</body>
+</html>
