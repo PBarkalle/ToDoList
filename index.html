@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" type="text/css" href="to do list.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body onload="displayItems()">
+    <div class="container">
+      <div class="header">TO DO LIST</div>
+
+      <div id="list">
+        <input type="text" id="myInput" placeholder="Title..." />
+        <button onclick="addItem()" id="addBtn">Add</button>
+        <ul id="myUL" ></ul>
+      </div>
+
+      <div class="clear">
+        <button type="button" id="clear-list" onclick="removeAll()">
+          Clear Items
+        </button>
+      </div>
+    </div>
+	<script src="toDoList.js"></script>
+  </body>
+</html>
